@@ -39,7 +39,9 @@ public class Main {
         user1.basket.ViewBasket();
         Vegetables.viewCategory();
         user1.viewMyGoods();
+        user2.basket.GetGood(Tomato);
         System.out.println(Apple.getAmount());
+
 
     }
 }
