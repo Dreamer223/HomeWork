@@ -2,7 +2,6 @@ package russian.gb.HomeWorkOOP;
 import java.util.HashMap;
 import java.util.Map;
 
-//3)Создать класс Basket, содержащий массив купленных товаров.
 public class Basket {
     Map<String,Integer> basket = new HashMap<>();
 

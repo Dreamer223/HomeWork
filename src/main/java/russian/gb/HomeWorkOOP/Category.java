@@ -3,7 +3,6 @@ package russian.gb.HomeWorkOOP;
 import java.util.ArrayList;
 import java.util.List;
 
-//2)Создать класс Категория, имеющий переменные имя и массив товаров. Создать несколько объектов класса Категория.
 public class Category {
     private String name;
     private String zone;
