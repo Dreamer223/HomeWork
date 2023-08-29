@@ -9,10 +9,12 @@ public class User<basket> {
     }
 
     Basket basket = new Basket(new HashMap());
-
-
+    List<String> myGoods;
+    public void buyBusket(){
+        myGoods = new ArrayList<>(basket.basket.keySet());
+        basket.basket.clear();
+    }
     public void viewMyGoods(){
-        List<String> myGoods = new ArrayList<>(basket.basket.keySet());
         System.out.println(myGoods);
     }
 }

@@ -27,6 +27,8 @@ public class Main {
         user1.viewMyGoods();
         user2.basket.GetGood(Tomato);
         System.out.println(Apple.getAmount());
+        user1.buyBusket();
+        user1.viewMyGoods();
 
 
     }
