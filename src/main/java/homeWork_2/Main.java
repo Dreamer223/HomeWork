@@ -60,6 +60,7 @@ public class Main {
                 System.out.println(participant.getName() + " участник выбыл из соревнования.");
             }
         }
+        participants.clear();
         for (Participant win : winner){
             System.out.println(win.getName());
         }
