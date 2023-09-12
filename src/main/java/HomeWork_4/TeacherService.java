@@ -20,9 +20,9 @@ public class TeacherService implements UserService<Teacher> {
     }
 
     public void editStudents(int index, int student) {
-        Teacher teacher = teachers.get(index);
+        Teacher teacher = teachers.get(index-1);
         teacher.setStudent(student);
-        teachers.set(index, teacher);
+        teachers.set(index-1, teacher);
         System.out.println(getall());
     }
 }
