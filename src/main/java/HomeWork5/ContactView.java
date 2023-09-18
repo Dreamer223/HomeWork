@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ContactView {
-    private ContactPresenter presenter;
-    private Scanner scanner = new Scanner(System.in);
-    public void setPresenter(ContactPresenter presenter) {
+    private final ContactPresenter presenter;
+    private final Scanner scanner = new Scanner(System.in);
+
+    public ContactView(ContactPresenter presenter) {
         this.presenter = presenter;
     }
 

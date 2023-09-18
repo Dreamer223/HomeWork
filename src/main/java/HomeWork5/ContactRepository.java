@@ -4,17 +4,32 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactRepository {
-    private List<Contact> contacts = new ArrayList<Contact>();
-    public void size(){
-        contacts.size();
+public class ContactRepository implements ContactStorage {
+    private List<Contact> contacts = new ArrayList<>();
+    private final String filePath = "contacts.txt";
+    public ContactRepository() {
+        try {
+            File file = new File(filePath);
+            if (file.createNewFile()) {
+                System.out.println("Файл для контактов создан: " + filePath);
+            } else {
+                System.out.println("Файл для контактов уже существует: " + filePath);
+                importContacts(filePath);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    @Override
     public void addContact(Contact contact){
         contacts.add(contact);
+        saveContacts();
     }
+    @Override
     public List<Contact> getAllContacts(){
         return contacts;
     }
+    @Override
     public void importContacts(String filePath){
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -35,6 +50,7 @@ public class ContactRepository {
             e.printStackTrace();
         }
     }
+    @Override
     public void exportContacts(String filePath){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (Contact contact : contacts) {
@@ -45,6 +61,9 @@ public class ContactRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    private void saveContacts() {
+        exportContacts(filePath);
     }
 
 }

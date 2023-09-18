@@ -2,28 +2,26 @@ package HomeWork5;
 
 import java.util.List;
 
-public class ContactPresenter{
-    private ContactRepository repository;
+public class ContactPresenter implements ContactPresentble{
+    private final ContactStorage storage;
 
-    public ContactPresenter(ContactRepository repository) {
-        this.repository = repository;
-
+    public ContactPresenter(ContactStorage storage) {
+        this.storage = storage;
     }
+    @Override
     public void addContact(Contact contact) {
-        repository.addContact(contact);
+        storage.addContact(contact);
     }
+    @Override
     public List<Contact> getAllContacts() {
-        return repository.getAllContacts();
+        return storage.getAllContacts();
     }
-    public void size(){
-        repository.size();
-    }
-
+    @Override
     public void importContacts(String filePath) {
-        repository.importContacts(filePath);
+        storage.importContacts(filePath);
     }
-
+    @Override
     public void exportContacts(String filePath) {
-        repository.exportContacts(filePath);
+        storage.exportContacts(filePath);
     }
 }
